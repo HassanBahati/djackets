@@ -27,7 +27,7 @@
           <router-link to="/summer" class="navbar-item">Summer</router-link>
           <router-link to="/winter" class="navbar-item">Winter</router-link>
 
-          <!-- buttons -->
+          <!-- nav buttons -->
           <div class="navbar-item">
             <div class="buttons">
               <!-- login  -->
