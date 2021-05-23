@@ -31,7 +31,7 @@
           <p class="is-size-6 has-text-grey">{{product.price}} Shs</p>
 
           <!-- button for viewing details  -->
-          View details 
+          <router-link v-bind:to="product.get_absolute_url" class="button is-dark mt-4">View Details</router-link>
         </div>
       </div>
     </div>
