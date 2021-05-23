@@ -61,8 +61,15 @@
 export default {
   data(){
     return{
-      showMobileMenu: false
+      showMobileMenu: false,
+      cart: {
+        items: []
+      }
     }
+  },
+  beforeCreate(){
+    // initializing store 
+    this.$store.commit('initializeStore')
   }
 }
 </script>
