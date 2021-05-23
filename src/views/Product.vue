@@ -53,7 +53,7 @@ export default {
       this.getProduct()
   },
   methods: {
-      getProducts(){
+      getProduct(){
           const category_slug = this.$route.params.category_slug
           const product_slug = this.$route.params.product_slug
       }
