@@ -37,6 +37,10 @@ export default createStore({
       // when browser is refreshed restor default cart 
       localStorage.setItem('cart', JSON.stringify(state.cart))
     },
+    //loading bar 
+    setIsLoading(state, status){
+      state.isLoaded = status
+    }
   },
   // asncy func to change state 
   actions: {

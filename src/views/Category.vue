@@ -1,21 +1,15 @@
 <template>
-  <div class="home">
-    <!-- hero landing section  -->
-    <section class="hero is-medium is-dark mb-6">
-      <div class="hero-body has-text-centered">
-        <p class="title mb-6">Welcome to Djackets</p>
-        <p class="subtitle">The best jackets store online</p>
-      </div>
-    </section>
-    <!-- prods section  -->
-    <div class="columns is-multiline">
+  <div class="page-category">
+    <div class="columns is-mulitline">
       <div class="column is-12">
-        <h2 class="is-size-2 has-text-centered">Latest products</h2>
+        <!-- category name  -->
+        <h2 class="is-size-2 has-text-centered">{{ category.name }}</h2>
       </div>
+
       <!-- columns with prducts  -->
       <div
         class="column is-3"
-        v-for="product in latestProducts"
+        v-for="product in category.products"
         v-bind:key="product.id"
       >
         <div class="box">
@@ -44,45 +38,51 @@
 
 <script>
 import axios from "axios";
-
+// import {toast} from 'bulma-toast'
 export default {
-  name: "Home",
+  name: "Category",
   data() {
     return {
-      latestProducts: [],
+      category: {
+        products: [],
+      },
     };
   },
-  components: {},
   mounted() {
-    this.getLatestProducts();
-
-    // setting title
-    document.title = "Home | Djackets";
+    this.getCategory();
   },
   methods: {
-    async getLatestProducts() {
-      this.$store.commit("setIsLoading", true);
+    async getCategory() {
+      const categorySlug = this.$route.params.category_slug
 
-      await axios
-        .get("api/v1/latest-products/")
-        .then((response) => {
-          this.latestProducts = response.data;
+      this.$store.commit("setIsLoaading", true);
+
+      axios
+        .get(`/api/v1/products/${categorySlug}/`)
+        .then(response => {
+          this.category = response.data;
+
+          // setting tile
+          document.title = this.category.name + " | Djackets";
         })
         .catch((error) => {
           console.log(error);
+
+          toast({
+            message: "Somehting went wrong, Please try again",
+            type: "is-danger",
+            dismissible: true,
+            pauseOnHover: true,
+            duration: 2000,
+            position: "button-right",
+          });
         });
 
-      this.$$store.commit("setIsLoading", false);
+      this.$store.commit("setIsLoading", false);
     },
   },
 };
 </script>
 
 <style scoped>
-.image {
-  /* removing spacing around image  */
-  margin-top: -1.25rem;
-  margin-left: -1.25rem;
-  margin-right: -1.25rem;
-}
 </style>
