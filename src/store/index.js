@@ -8,7 +8,7 @@ export default createStore({
     },
     isAuthenticated: false,
     token: '',
-    isLoaded: false
+    isLoading: false
   },
   // anchroynous for the states becuase we cant just change them directly 
   mutations: {
@@ -39,7 +39,7 @@ export default createStore({
     },
     //loading bar 
     setIsLoading(state, status){
-      state.isLoaded = status
+      state.isLoading = status
     }
   },
   // asncy func to change state 

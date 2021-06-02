@@ -38,7 +38,7 @@
 
 <script>
 import axios from "axios";
-// import {toast} from 'bulma-toast'
+import {toast} from 'bulma-toast'
 export default {
   name: "Category",
   data() {
@@ -50,6 +50,13 @@ export default {
   },
   mounted() {
     this.getCategory();
+  },
+  watch: {
+    $route(to, from){
+      if(to.name === 'Category'){
+        this.getCategory()
+      }
+    }
   },
   methods: {
     async getCategory() {

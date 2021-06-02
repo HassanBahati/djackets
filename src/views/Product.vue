@@ -87,15 +87,16 @@ export default {
 
       //   calling store
       this.$store.commit("addToCart", item);
+      
       //  bulma-toast to show message when prod added to cart
-      //   toast({
-      //       message: 'The product was added to the cart',
-      //       type: 'is-success',
-      //       dismissible: 'true',
-      //       pauseOnHover: true,
-      //       duration: 2000,
-      //       position: 'bottom-right'
-      //   })
+        toast({
+            message: 'The product was added to the cart',
+            type: 'is-success',
+            dismissible: 'true',
+            pauseOnHover: true,
+            duration: 2000,
+            position: 'bottom-right'
+        })
     },
   },
 };
