@@ -77,12 +77,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.image {
-  /* removing spacing around image  */
-  margin-top: -1.25rem;
-  margin-left: -1.25rem;
-  margin-right: -1.25rem;
-}
-</style>
