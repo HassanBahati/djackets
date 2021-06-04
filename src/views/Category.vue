@@ -7,18 +7,22 @@
       </div>
 
       <!-- columns with prducts  -->
-       <ProductBox v-for="product in category.products" v-bind:key="product.id" v-bind:product="product"/>
-   </div>
+      <ProductBox
+        v-for="product in category.products"
+        v-bind:key="product.id"
+        v-bind:product="product"
+      />
+    </div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
-import {toast} from 'bulma-toast'
-import ProductBox from '../components/ProductBox.vue'
+import { toast } from "bulma-toast";
+import ProductBox from "../components/ProductBox.vue";
 export default {
   name: "Category",
-  components:{ProductBox},
+  components: { ProductBox },
   data() {
     return {
       category: {
@@ -30,21 +34,21 @@ export default {
     this.getCategory();
   },
   watch: {
-    $route(to, from){
-      if(to.name === 'Category'){
-        this.getCategory()
+    $route(to, from) {
+      if (to.name === "Category") {
+        this.getCategory();
       }
-    }
+    },
   },
   methods: {
     async getCategory() {
-      const categorySlug = this.$route.params.category_slug
+      const categorySlug = this.$route.params.category_slug;
 
-      this.$store.commit("setIsLoaading", true);
+      this.$store.commit("setIsLoading", true);
 
       axios
         .get(`/api/v1/products/${categorySlug}/`)
-        .then(response => {
+        .then((response) => {
           this.category = response.data;
 
           // setting tile
@@ -54,7 +58,7 @@ export default {
           console.log(error);
 
           toast({
-            message: "Somehting went wrong, Please try again",
+            message: "Something went wrong, Please try again",
             type: "is-danger",
             dismissible: true,
             pauseOnHover: true,
