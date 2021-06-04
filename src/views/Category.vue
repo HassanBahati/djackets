@@ -42,7 +42,7 @@ export default {
   },
   methods: {
     async getCategory() {
-      const categorySlug = this.$route.params.category_slug;
+      const categorySlug = this.$route.params.category_slug
 
       this.$store.commit("setIsLoading", true);
 
