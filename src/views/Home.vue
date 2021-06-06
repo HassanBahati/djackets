@@ -53,7 +53,7 @@ export default {
           console.log(error);
         });
 
-      this.$$store.commit("setIsLoading", false);
+      this.$store.commit("setIsLoading", false);
     },
   },
 };
