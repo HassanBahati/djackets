@@ -13,9 +13,13 @@
         <h2 class="is-size-2 has-text-centered">Latest products</h2>
       </div>
       <!-- columns with prducts  -->
-     <ProductBox v-for="product in latestProducts" v-bind="product.id" v-bind:product="product"/>
+      <ProductBox
+        v-for="product in latestProducts"
+        v-bind:key="product.id"
+        v-bind:product="product"
+      />
     </div>
-  </div> 
+  </div>
 </template>
 
 <script>
