@@ -1,6 +1,10 @@
 <template>
     <div class="page-sign-up">
-
+        <div class="columns">
+            <div class="column is-4 is-offset-4">
+                <h1 class="title">SignUp</h1>
+            </div>
+        </div>
     </div>
 </template>
 
