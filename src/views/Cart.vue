@@ -32,18 +32,28 @@
 </template>
 
 <script>
-import axios from 'axios'
-import CartItem from '../components/CartItem.vue'
+import axios from "axios";
+import CartItem from "../components/CartItem.vue";
 export default {
   name: "Cart",
   components: {
-      CartItem
+    CartItem,
   },
-  data(){
-      return{
-          cart: {
-              items: []
-          }
+  data() {
+    return {
+      cart: {
+        items: [],
+      },
+    };
+  },
+  mounted() {
+    this.cart = this.$store.state.cart;
+  },
+  computed: {
+      cartTotalLength(){
+          return this.cart.items.reduce((acc, curVal)=>{
+              return acc += curVal.quantity
+          }, 0)
       }
   }
 };
