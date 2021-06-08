@@ -26,6 +26,16 @@
           </tbody>
         </table>
         <p v-else>You dont have any products in your cart ..</p>
+      
+      <!-- to checkout  -->
+      <div class="column is-12 box">
+          <h2 class="subtitle">Summary</h2>
+          <strong>${{cartTotalPrice.toFixed(2)}}</strong>, {{cartTotalLength}} items
+
+          <hr>
+
+          <router-link to="/cart/checkout" class="button is-dark">Proceed to checekout</router-link>
+      </div>
       </div>
     </div>
   </div>
