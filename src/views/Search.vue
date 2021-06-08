@@ -8,9 +8,10 @@
                 </h2>
             </div>
             <ProductBox
-            v-for="product in products"
-            v-bind:key='product.id'
-            v-bind:product="product"/>
+        v-for="product in products"
+        v-bind:key="product.id"
+        v-bind:product="product"
+      />
         </div>
     </div>
 </template>
