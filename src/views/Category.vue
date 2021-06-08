@@ -33,6 +33,7 @@ export default {
   mounted() {
     this.getCategory();
   },
+  // watches changes to the route 
   watch: {
     $route(to, from) {
       if (to.name === "Category") {
